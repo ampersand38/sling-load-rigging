@@ -1,0 +1,12 @@
+name = "Ground-Based Sling Load Rigging";
+picture = "logo_amp_ca.paa";
+actionName = "GitHub";
+action = "https://github.com/ampersand38";
+description = "Ground-based Sling Load Rigging";
+logo = "logo_amp_ca.paa";
+logoOver = "logo_amp_ca.paa";
+tooltip = "Ground-based Sling Load Rigging";
+tooltipOwned = "Ground-based Sling Load Rigging Owned";
+overview = "Ground-based Sling Load Rigging";
+author = "Ampersand";
+overviewPicture = "logo_amp_ca.paa";
