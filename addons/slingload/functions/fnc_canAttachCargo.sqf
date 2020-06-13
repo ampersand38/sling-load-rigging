@@ -13,10 +13,9 @@
  * Example:
  * [_hook, _unit] call amp_slingload_fnc_canAttachCargo
  */
-
+//amp_slingload_fnc_canAttachCargo={
 params ["_heli", "_player"];
 
-private _carriedObject = _player getVariable ["ace_dragging_carriedObject", objNull];
-!isNull (_carriedObject)
+amp_slingload_holdingFitting
 && {getNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "slingLoadMaxCargoMass") > 0}
 

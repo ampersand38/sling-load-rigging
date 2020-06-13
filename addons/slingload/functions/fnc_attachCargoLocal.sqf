@@ -16,18 +16,21 @@
  * [_heli, _cargoHookPosition, _cargoHookName, _cargo] call amp_slingload_fnc_attachCargoLocal
  * [_heli, (_heli selectionPosition "slingload0") vectorAdd [0,3,0], "amp_slingload_cargoHookForward", _cargo] call amp_slingload_fnc_attachCargoLocal
  */
-
+//amp_slingload_fnc_attachCargoLocal={
 params ["_heli", "_cargoHookPosition", "_cargoHookName", "_cargo"];
 
 ["amp_slingload_localise", [_heli, _cargo]] call CBA_fnc_serverEvent;
 
-private _ropes = _heli getVariable [_cargoHookName, []];
+private _ropesHeli = _heli getVariable [_cargoHookName, []];
+private _ropesCargo = _cargo getVariable ["amp_slingload_ropes4Cargo", []];
 private _liftPoints = [_cargo] call amp_slingload_fnc_getCargoLiftPoints;
 {
     private _rope = ropeCreate [_heli, _cargoHookPosition, _cargo, _x, 10, ["", [0,0,-1]], ["RopeEnd", [0,0,-11]]];
-    _ropes pushBack _rope;
+    _ropesHeli pushBack _rope;
+    _ropesCargo pushBack _rope;
 } forEach _liftPoints;
 
-_heli setVariable [_cargoHookName, _ropes, true];
+_heli setVariable [_cargoHookName, _ropesHeli, true];
+_cargo getVariable ["amp_slingload_ropes4Cargo", _ropesCargo];
 
 true

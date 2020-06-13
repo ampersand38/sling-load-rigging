@@ -20,4 +20,4 @@ params ["_unit", "_key"];
 
 if (_key != 1 || {!GVAR(pfeh_running)}) exitWith {};
 
-GVAR(rigCargoManualAction) = RIG_CANCEL;
+amp_slingload_pfeh_action = RIG_CANCEL;

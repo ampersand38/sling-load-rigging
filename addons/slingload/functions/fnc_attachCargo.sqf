@@ -11,17 +11,17 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_hook, _unit] call amp_slingload_fnc_attachCargo
+ * [_heli, _unit] call amp_slingload_fnc_attachCargo
+ * [cursorObject, player, (cursorObject selectionPosition "slingload0") vectorAdd [0,-3,0]] call amp_slingload_fnc_attachCargo
  */
-
+//amp_slingload_fnc_attachCargo={
 params ["_heli", "_player", ["_cargoHookPosition", []]];
 
-private _apexFitting = _player getVariable ["ace_dragging_carriedObject", objNull];
+private _apexFitting = _player getVariable ["amp_slingload_heldFitting", objNull];
 if (isNull _apexFitting) exitWith {false};
-private _cargo = _apexFitting getVariable ["amp_slingload_cargo4Helper", objNull];
+private _cargo = _apexFitting getVariable ["amp_slingload_cargo4Fitting", objNull];
 if (isNull _cargo) exitWith {false};
 
-_apexFitting removeEventHandler ["RopeBreak", _apexFitting getVariable ["amp_slingload_apexFittingEH", -1]];
 ropes _apexFitting apply {ropeDestroy _x};
 deleteVehicle _apexFitting;
 

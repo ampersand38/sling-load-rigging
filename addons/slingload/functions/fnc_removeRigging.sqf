@@ -19,11 +19,10 @@ params ["_cargo", "_player"];
 private _ropes = _cargo getVariable ["amp_slingload_ropes4Cargo", []];
 
 private _apexFitting = ropeAttachedTo _cargo;
+_ropes apply {ropeDestroy _x};
 if (_apexFitting isKindOf "amp_slingload_apexFitting") then {
-    _apexFitting removeEventHandler ["RopeBreak", _apexFitting getVariable ["amp_slingload_apexFittingEH", -1]];
     deleteVehicle _apexFitting;
 };
-_ropes apply {ropeDestroy _x};
 
 _cargo setVariable ["amp_slingload_ropes4Cargo", [], true];
 
