@@ -4,6 +4,7 @@
 private _displayName = "Attach Cargo";
 private _icon = "\a3\ui_f\data\igui\cfg\vehicletoggles\slingloadropeiconon2_ca.paa";
 private _statement = amp_slingload_fnc_attachCargo;
+private _condition = amp_slingload_fnc_canAttachCargo;
 private _position = "slingload0";
 _action = ["amp_slingload_attachCargo", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
 ["Helicopter", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
@@ -31,74 +32,76 @@ _actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _
 ["Heli_Transport_02_base_F", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
 
 // RHS_CH_47F_base
-_statement = {[_target, _player, [0,+1.9812-0.706448,-3.10134]] call amp_slingload_fnc_attachCargo};
-_position = [0,+1.9812-0.706448,-3.10134];
-_actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
-// chinook aft cargo hook
-_position = [0,-1.9812-0.706448,-3.10134];
-_statement = {[_target, _player, [0,-1.9812-0.706448,-3.10134]] call amp_slingload_fnc_attachCargo};
-_actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
 if (isClass (configFile >> "CfgVehicles" >> "RHS_CH_47F_base")) then {
+    // forward
+    _statement = {[_target, _player, [0,+1.9812-0.706448,-3.10134]] call amp_slingload_fnc_attachCargo};
+    _position = [0,+1.9812-0.706448,-3.10134];
+    _actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
+    // aft
+    _position = [0,-1.9812-0.706448,-3.10134];
+    _statement = {[_target, _player, [0,-1.9812-0.706448,-3.10134]] call amp_slingload_fnc_attachCargo};
+    _actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
     ["RHS_CH_47F_base", 0, [], _actionForward, true] call ace_interact_menu_fnc_addActionToClass;
     ["RHS_CH_47F_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
 };
 
 // rhsusf_CH53E_USMC
-_statement = {[_target, _player, [0,+1.524-3.92882,-4.13195]] call amp_slingload_fnc_attachCargo};
-_position = [0,+1.524-3.92882,-4.13195];
-_actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
-// chinook aft cargo hook
-_position = [0,-1.524-3.92882,-4.13195];
-_statement = {[_target, _player, [0,-1.524-3.92882,-4.13195]] call amp_slingload_fnc_attachCargo};
-_actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
 if (isClass (configFile >> "CfgVehicles" >> "rhsusf_CH53E_USMC")) then {
+    // forward
+    _statement = {[_target, _player, [0,+1.524+3.92882,-4.13195]] call amp_slingload_fnc_attachCargo};
+    _position = [0,+1.524+3.92882,-4.13195];
+    _actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
+    // aft
+    _position = [0,-1.524+3.92882,-4.13195];
+    _statement = {[_target, _player, [0,-1.524+3.92882,-4.13195]] call amp_slingload_fnc_attachCargo};
+    _actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
     ["rhsusf_CH53E_USMC", 0, [], _actionForward, true] call ace_interact_menu_fnc_addActionToClass;
     ["rhsusf_CH53E_USMC", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
 };
 
 // CUP_CH47F_base
-// forward
-_statement = {[_target, _player, [0,-0.325188+1.9812,-3.02169]] call amp_slingload_fnc_attachCargo};
-_position = [0,-0.325188+1.9812,-3.02169];
-_actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
-// aft
-_statement = {[_target, _player, [0,-0.325188-1.9812,-3.02169]] call amp_slingload_fnc_attachCargo};
-_position = [0,-0.325188-1.9812,-3.02169];
-_actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
 if (isClass (configFile >> "CfgVehicles" >> "CUP_CH47F_base")) then {
+    // forward
+    _statement = {[_target, _player, [0,-0.325188+1.9812,-3.02169]] call amp_slingload_fnc_attachCargo};
+    _position = [0,-0.325188+1.9812,-3.02169];
+    _actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
+    // aft
+    _statement = {[_target, _player, [0,-0.325188-1.9812,-3.02169]] call amp_slingload_fnc_attachCargo};
+    _position = [0,-0.325188-1.9812,-3.02169];
+    _actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
     ["CUP_CH47F_base", 0, [], _actionForward, true] call ace_interact_menu_fnc_addActionToClass;
     ["CUP_CH47F_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
 };
 
 // CUP_MH47E_base
-// main
-_statement = {[_target, _player, [0,-0.084305,0.539414]] call amp_slingload_fnc_attachCargo};
-_position = [0,-0.084305,0.539414];
-_action = ["amp_slingload_attachCargoMain", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
-// forward
-_statement = {[_target, _player, [0,2.22729,0.64529]] call amp_slingload_fnc_attachCargo};
-_position = [0,2.22729,0.64529];
-_actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
-// aft
-_statement = {[_target, _player, [0,-2.3959,0.433537]] call amp_slingload_fnc_attachCargo};
-_position = [0,-2.3959,0.433537];
-_actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
 if (isClass (configFile >> "CfgVehicles" >> "CUP_MH47E_base")) then {
+    // main
+    _statement = {[_target, _player, [0,-0.084305,0.539414]] call amp_slingload_fnc_attachCargo};
+    _position = [0,-0.084305,0.539414];
+    _action = ["amp_slingload_attachCargoMain", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
+    // forward
+    _statement = {[_target, _player, [0,2.22729,0.64529]] call amp_slingload_fnc_attachCargo};
+    _position = [0,2.22729,0.64529];
+    _actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
+    // aft
+    _statement = {[_target, _player, [0,-2.3959,0.433537]] call amp_slingload_fnc_attachCargo};
+    _position = [0,-2.3959,0.433537];
+    _actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
     ["CUP_MH47E_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
     ["CUP_MH47E_base", 0, [], _actionForward, true] call ace_interact_menu_fnc_addActionToClass;
     ["CUP_MH47E_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
 };
 
 // CUP_CH53E_base
-// forward
-_statement = {[_target, _player, [0,1.524+4.30637,-4.25129]] call amp_slingload_fnc_attachCargo};
-_position = [0,1.524+4.30637,-4.25129];
-_actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
-// aft
-_statement = {[_target, _player, [0,-1.524+4.30637,-4.25129]] call amp_slingload_fnc_attachCargo};
-_position = [0,-1.524+4.30637,-4.25129];
-_actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
 if (isClass (configFile >> "CfgVehicles" >> "CUP_CH53E_base")) then {
+    // forward
+    _statement = {[_target, _player, [0,1.524+4.30637,-4.25129]] call amp_slingload_fnc_attachCargo};
+    _position = [0,1.524+4.30637,-4.25129];
+    _actionForward = ["amp_slingload_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
+    // aft
+    _statement = {[_target, _player, [0,-1.524+4.30637,-4.25129]] call amp_slingload_fnc_attachCargo};
+    _position = [0,-1.524+4.30637,-4.25129];
+    _actionAft = ["amp_slingload_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 3.5] call ace_interact_menu_fnc_createAction;
     ["CUP_CH53E_base", 0, [], _actionForward, true] call ace_interact_menu_fnc_addActionToClass;
     ["CUP_CH53E_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
 };

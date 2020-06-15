@@ -16,6 +16,8 @@
 //amp_slingload_fnc_canAttachCargo={
 params ["_heli", "_player"];
 
+if (typeOf _heli isEqualTo "amp_slingload_apexFitting") exitWith { false };
+
 !isNull (_player getVariable ["amp_slingload_heldFitting", objNull])
 && {getNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "slingLoadMaxCargoMass") > 0}
 
