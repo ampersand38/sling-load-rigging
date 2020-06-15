@@ -12,9 +12,16 @@
  *
  * Example:
  * [_heli, _unit] call amp_slingload_fnc_canReleaseCargo
+ * [vehicle player, player] call amp_slingload_fnc_canReleaseCargo
  */
 
-params ["_heli", "_player", ["_cargoHookName", ""]];
+params ["_heli", "_unit", ["_cargoHookName", ""]];
+
+// vehicle crew can access, passenger with cargo sling can access
+if (
+    ([_unit] call CBA_fnc_vehicleRole) isEqualTo "cargo" &&
+    {!("amp_slingload_CargoSling" in (_unit call ace_common_fnc_uniqueItems))}
+) exitWith {false};
 
 if (toLower _cargoHookName in CARGOHOOKNAMES) exitWith {
     count (_heli getVariable ["amp_slingload_cargoHook" + _cargoHookName, []]) > 0

@@ -11,7 +11,8 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_cargo, _unit] call amp_slingload_fnc_canRigCargo
+ * [_cargo, _unit] call amp_slingload_fnc_canRigCargoAuto
+ * [(curatorSelected # 0 # 0), player] call amp_slingload_fnc_canRigCargoAuto
  */
 
 params ["_cargo", "_unit"];
@@ -21,7 +22,4 @@ if !("amp_slingload_CargoSling" in (_unit call ace_common_fnc_uniqueItems)) exit
 if ((typeOf _cargo) isEqualTo "amp_slingload_apexFitting") exitWith {false};
 if amp_slingload_pfeh_running exitWith {false};
 
-if (_cargo getVariable ["amp_slingload_isRiggingEnabled", false]) exitWith {true};
-if !(getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints") isEqualTo []) exitWith {true};
-
-_cargo isKindOf "LandVehicle" || {_cargo isKindOf "Air" || {_cargo isKindOf "Ship"}}
+!(getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints") isEqualTo [])

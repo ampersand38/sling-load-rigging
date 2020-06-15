@@ -8,6 +8,7 @@ class CfgVehicles {
         //model = "\z\ace\addons\fastroping\data\helper.p3d";
         damageEffect = "";
         destrType = "";
+        acre_hasInfantryPhone = 0;
         /*
         class ACE_Actions {
             class amp_slingload_pickup {

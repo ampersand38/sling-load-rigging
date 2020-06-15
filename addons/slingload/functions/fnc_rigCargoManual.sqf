@@ -70,8 +70,10 @@ private _hook = "amp_slingload_hook" createVehicleLocal [0,0,0];
         deleteVehicle _hook;
         //if (amp_slingload_pfeh_action == RIG_CANCEL) then {};
         if (amp_slingload_pfeh_action > RIG_CANCEL && {count amp_slingload_rigCargoHelpers > 0}) then {
-            _cargo setVariable ["amp_slingload_slingLoadCargoLiftPoints", amp_slingload_rigCargoHelpers apply {(_cargo worldToModelVisual getPos _x) vectorAdd [0,0,0.2]}, true];
-            _args call amp_slingload_fnc_rigCargo;
+            private _liftPoints = amp_slingload_rigCargoHelpers apply {(_cargo worldToModelVisual getPos _x) vectorAdd [0,0,0.2]; };
+            [_cargo, _unit, _liftPoints] call amp_slingload_fnc_rigCargo;
+            _liftPoints = _liftPoints + (_cargo getVariable ["amp_slingload_liftPoints", []]);
+            _cargo setVariable ["amp_slingload_liftPoints", _liftPoints, true];
         };
         {deleteVehicle _x} forEach amp_slingload_rigCargoHelpers;
         amp_slingload_rigCargoHelpers = [];

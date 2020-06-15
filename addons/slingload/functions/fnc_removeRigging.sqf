@@ -24,6 +24,7 @@ if (_apexFitting isKindOf "amp_slingload_apexFitting") then {
     deleteVehicle _apexFitting;
 };
 
+_cargo setVariable ["amp_slingload_liftPoints", [], true];
 _cargo setVariable ["amp_slingload_ropes4Cargo", [], true];
 
 true

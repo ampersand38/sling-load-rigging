@@ -44,10 +44,16 @@ if ((_unit getVariable ["amp_slingload_apexFittingEH", -1]) > -1) exitWith {
 // adjust rigging
 if ((_unit getVariable ["amp_slingload_adjustRiggingEH", -1]) > -1) exitWith {
     amp_slingload_pfeh_action = [RIG_UP, RIG_DN] select (_scrollAmount < 0);
-    private _rope = _unit getVariable ["amp_slingload_ropeBeingAdjusted", objNull];
-    if (!isNull _rope && {ropeUnwound _rope}) then {
-        ropeUnwind [_rope, 1, _scrollAmount * 2.5 / 6, true];
-        hintSilent (ropeLength _rope toFixed 1);
-    };
+    private _ropes = _unit getVariable ["amp_slingload_ropesBeingAdjusted", []];
+    private _lengths = "";
+    {
+        if (!isNull _x ) then {
+            ropeUnwind [_x, 1, _scrollAmount * 2.5 / 6, true];
+            private _length = ropeLength _x;
+            _x setVariable ["amp_slingload_ropeLength", _length, true];
+            _lengths = format ["%1 %2m", _lengths, (_length toFixed 1)];
+        };
+    } forEach _ropes;
+    hintSilent _lengths;
     true
 };
