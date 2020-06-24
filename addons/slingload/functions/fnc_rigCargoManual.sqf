@@ -18,7 +18,7 @@ params ["_cargo", "_unit"];
 [_unit, "blockThrow", "amp_slingload_rigCargoManual", true] call ace_common_fnc_statusEffect_set;
 
 //Show mouse buttons:
-["Add Lift Point", "Cancel", "Done"] call ace_interaction_fnc_showMouseHint;
+[localize LSTRING(AddLiftPoint), localize "STR_ACE_Common_Cancel", localize "STR_ACE_Tripod_Done"] call ace_interaction_fnc_showMouseHint;
 _unit setVariable ["amp_slingload_addLiftPointEH", [_unit, "DefaultAction", {true}, {amp_slingload_pfeh_action = RIG_ADD}] call ace_common_fnc_AddActionEventHandler];
 
 amp_slingload_pfeh_running = true;

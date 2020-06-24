@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="AMP">
+    <Package name="SlingLoad">
+        <Key ID="STR_AMP_SlingLoad_AttachCargo">
+            <English>Attach Cargo</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_ReleaseCargo">
+            <English>Release Cargo</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_CargoHookNameMain">
+            <English>Main</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_CargoHookNameForward">
+            <English>Forward</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_CargoHookNameAft">
+            <English>Aft</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_RigForSlingLoad">
+            <English>Rig For Sling Load</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_AutoRig">
+            <English>Auto Rig</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_ManualRig">
+            <English>Manual Rig</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_AdjustRigging">
+            <English>Adjust Rigging</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_AdjustRiggingAll">
+            <English>All</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_AdjustRiggingSingle">
+            <English>Single</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_RemoveRigging">
+            <English>Remove Rigging</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_SlingLoadApexFitting">
+            <English>Sling Load Apex Fitting</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_SlingLoadHook">
+            <English>Sling Load Hook</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_AddLiftPoint">
+            <English>Add Lift Point</English>
+        </Key>
+        <Key ID="STR_AMP_SlingLoad_LengthenShorten">
+            <English>Lengthen/Shorten</English>
+        </Key>
+    </Package>
+</Project>

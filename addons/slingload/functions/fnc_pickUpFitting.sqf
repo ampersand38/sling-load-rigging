@@ -19,7 +19,7 @@ params ["_af", "_unit"];
 [_unit, "blockThrow", "amp_slingload_pickUpFitting", true] call ace_common_fnc_statusEffect_set;
 
 //Show mouse buttons:
-["Drop", "", "Raise/Lower"] call ace_interaction_fnc_showMouseHint;
+[localize "STR_ACE_Dragging_Drop", "", localize "STR_ACE_Dragging_LowerRaise"] call ace_interaction_fnc_showMouseHint;
 _unit setVariable ["amp_slingload_apexFittingEH", [_unit, "DefaultAction", {true}, {amp_slingload_holdingFitting = false}] call ace_common_fnc_AddActionEventHandler];
 
 amp_slingload_pfeh_running = true;

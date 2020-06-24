@@ -21,7 +21,7 @@ params ["_cargo", "_unit", "_all"];
 [_unit, "blockThrow", "amp_slingload_rigCargoManual", true] call ace_common_fnc_statusEffect_set;
 
 //Show mouse buttons:
-["Done", "", "Lengthen/Shorten"] call ace_interaction_fnc_showMouseHint;
+[localize "STR_ACE_Tripod_Done", "", localize LSTRING(LengthenShorten)] call ace_interaction_fnc_showMouseHint;
 _unit setVariable ["amp_slingload_adjustRiggingEH", [_unit, "DefaultAction", {true}, {amp_slingload_pfeh_action = RIG_ADD}] call ace_common_fnc_AddActionEventHandler];
 
 amp_slingload_pfeh_running = true;
