@@ -33,10 +33,12 @@ _apexFitting allowDamage false;
 _apexFitting disableCollisionWith _cargo;
 _apexFitting disableCollisionWith _unit;
 
+private _ropeLength = sizeOf typeOf _cargo;
 private _ropes = [];
 {
-    private _rope = ropeCreate [_apexFitting, [0,0,0], _cargo, _x, 10, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
+    private _rope = ropeCreate [_apexFitting, [0,0,0], _cargo, _x, _ropeLength, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
     _rope setVariable ["amp_slingload_point4Rope", _x, true];
+    _rope setVariable ["amp_slingload_ropeLength", _ropeLength, true];
     //_rope disableCollisionWith _unit;
     //_rope disableCollisionWith _cargo;
     {
