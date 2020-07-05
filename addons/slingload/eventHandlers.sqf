@@ -10,7 +10,9 @@
 
 ["Helicopter", "Init", {
     params ["_heli"];
-    _heli addItemCargoGlobal ["amp_slingload_CargoSling", 4];
+    if (local _heli) then {
+        _heli addItemCargoGlobal ["amp_slingload_CargoSling", 4];
+    };
     _heli addEventHandler ["RopeAttach", {
         //params ["_heli", "_rope", "_object"];
         ["amp_slingload_localise", [_this # 0]] call CBA_fnc_serverEvent;
