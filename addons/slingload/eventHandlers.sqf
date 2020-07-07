@@ -8,6 +8,11 @@
     } forEach (ropes _heli + ropeAttachedObjects _heli);
 }] call CBA_fnc_addEventHandler;
 
+["amp_slingload_adjustRope", {
+    params ["_rope", "_speed", "_length", "_relative"];
+    ropeUnwind [_rope, _speed, _length, _relative];
+}] call CBA_fnc_addEventHandler;
+
 ["Helicopter", "Init", {
     params ["_heli"];
     if (local _heli) then {

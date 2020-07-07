@@ -48,7 +48,8 @@ if ((_unit getVariable ["amp_slingload_adjustRiggingEH", -1]) > -1) exitWith {
     private _lengths = "";
     {
         if (!isNull _x ) then {
-            ropeUnwind [_x, 1, _scrollAmount * 2.5 / 6, true];
+            //ropeUnwind [_x, 1, _scrollAmount * 2.5 / 6, true];
+            ["amp_slingload_adjustRope", [_x, 1, _scrollAmount * 2.5 / 6, true], _x] call CBA_fnc_targetEvent;
             private _length = ropeLength _x;
             _x setVariable ["amp_slingload_ropeLength", _length, true];
             _lengths = format ["%1 %2m", _lengths, (_length toFixed 1)];
