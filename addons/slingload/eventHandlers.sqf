@@ -13,7 +13,7 @@
     ropeUnwind [_rope, _speed, _length, _relative];
 }] call CBA_fnc_addEventHandler;
 
-["Helicopter", "Init", {
+["Helicopter", "InitPost", {
     params ["_heli"];
     if (local _heli) then {
         _heli addItemCargoGlobal ["amp_slingload_CargoSling", 4];
