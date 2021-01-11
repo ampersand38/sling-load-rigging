@@ -39,6 +39,22 @@ deleteVehicle _apexFitting;
 private _cargoHookName = "amp_slingload_cargoHookMain";
 if (_cargoHookPosition isEqualTo []) then {
     _cargoHookPosition = _heli selectionPosition "slingload0";
+    if (_cargoHookPosition isEqualTo [0, 0, 0]) then {
+        // no slingload mem point, get safe attachment position
+        private _centerOfMass = getCenterOfMass _heli;
+        private _position0 = [_centerOfMass # 0, _centerOfMass # 1, boundingBox _heli # 0 # 2];
+        private _intersections = lineIntersectsSurfaces [
+            AGLToASL (_heli modelToWorldVisual _centerOfMass),
+            AGLToASL (_heli modelToWorldVisual _position0),
+            objNull,
+            objNull,
+            false,
+            -1
+        ] select {_x # 3 == _heli};
+        if (count _intersections > 0) then {
+            _cargoHookPosition = _heli worldToModel (ASLToAGL (_intersections # 0 # 0));
+        };
+    }
 } else {
     _cargoHookName = ["amp_slingload_cargoHookForward", "amp_slingload_cargoHookAft"] select (
         _cargoHookPosition # 1
@@ -61,5 +77,3 @@ _cargo setVariable ["amp_slingload_ropes4Cargo", _ropes4Cargo - [objNull], true]
 ["amp_slingload_localise", [_heli]] call CBA_fnc_serverEvent;
 
 true
-
-
