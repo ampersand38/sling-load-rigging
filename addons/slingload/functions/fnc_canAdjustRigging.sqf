@@ -10,15 +10,15 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Example:
- * [_cargo, _unit] call amp_slingload_fnc_canAdjustRigging
- * [cursorObject, player] call amp_slingload_fnc_canAdjustRigging
+ * Exslrle:
+ * [_cargo, _unit] call slr_slingload_fnc_canAdjustRigging
+ * [cursorObject, player] call slr_slingload_fnc_canAdjustRigging
  */
 
 params ["_cargo", "_player"];
 
-!amp_slingload_pfeh_running && {
+!GVAR(pfeh_running) && {
     (!isNull ropeAttachedTo _cargo || {
-        !((_cargo getVariable ["amp_slingload_ropes4Cargo", []]) isEqualTo [])
+        !((_cargo getVariable ["slr_slingload_ropes4Cargo", []]) isEqualTo [])
     })
 }

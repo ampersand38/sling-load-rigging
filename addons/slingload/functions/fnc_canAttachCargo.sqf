@@ -10,14 +10,14 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Example:
- * [_hook, _unit] call amp_slingload_fnc_canAttachCargo
+ * Exslrle:
+ * [_hook, _unit] call slr_slingload_fnc_canAttachCargo
  */
-//amp_slingload_fnc_canAttachCargo={
+//slr_slingload_fnc_canAttachCargo={
 params ["_heli", "_player"];
 
-if (typeOf _heli isEqualTo "amp_slingload_apexFitting") exitWith { false };
+if (typeOf _heli isEqualTo "slr_slingload_apexFitting") exitWith { false };
 
-!isNull (_player getVariable ["amp_slingload_heldFitting", objNull])
+!isNull (_player getVariable ["slr_slingload_heldFitting", objNull])
 && {getNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "slingLoadMaxCargoMass") > 0}
 

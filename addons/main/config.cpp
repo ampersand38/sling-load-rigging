@@ -9,7 +9,7 @@ class CfgPatches {
         requiredAddons[] = {"ace_common"};
         author = "Ampersand";
         authors[] = {"Ampersand"};
-        authorUrl = "https://github.com/ampersand38/amp";
+        authorUrl = "https://github.com/ampersand38/slr";
         VERSION_CONFIG;
     };
 };

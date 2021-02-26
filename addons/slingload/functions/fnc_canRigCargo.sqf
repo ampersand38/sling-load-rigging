@@ -10,18 +10,18 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Example:
- * [_cargo, _unit] call amp_slingload_fnc_canRigCargo
+ * Exslrle:
+ * [_cargo, _unit] call slr_slingload_fnc_canRigCargo
  */
 
 params ["_cargo", "_unit"];
 
-if !("amp_slingload_CargoSling" in (_unit call ace_common_fnc_uniqueItems)) exitWith {false};
+if !("slr_slingload_CargoSling" in (_unit call ace_common_fnc_uniqueItems)) exitWith {false};
 
-if ((typeOf _cargo) isEqualTo "amp_slingload_apexFitting") exitWith {false};
-if amp_slingload_pfeh_running exitWith {false};
+if ((typeOf _cargo) isEqualTo "slr_slingload_apexFitting") exitWith {false};
+if GVAR(pfeh_running) exitWith {false};
 
-if (_cargo getVariable ["amp_slingload_isRiggingEnabled", false]) exitWith {true};
+if (_cargo getVariable ["slr_slingload_isRiggingEnabled", false]) exitWith {true};
 if !(getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints") isEqualTo []) exitWith {true};
 
 _cargo isKindOf "LandVehicle" || {_cargo isKindOf "Air" || {_cargo isKindOf "Ship"}}

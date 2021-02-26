@@ -4,4 +4,4 @@
 #include "CBA_Keybinds.sqf"
 #include "eventHandlers.sqf"
 
-amp_slingload_pfeh_running = false;
+GVAR(pfeh_running) = false;

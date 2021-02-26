@@ -1,4 +1,4 @@
-#include "\z\amp\addons\slingload\script_component.hpp"
+#include "\z\slr\addons\slingload\script_component.hpp"
 
 #define RIG_WAITING -1
 #define RIG_ADD 0

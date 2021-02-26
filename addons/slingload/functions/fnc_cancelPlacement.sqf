@@ -10,7 +10,7 @@
  * Return Value:
  * None
  *
- * Example:
+ * Exslrle:
  * [unit, 1] call ace_explosives_fnc_cancelPlacement
  *
  * Public: No
@@ -20,4 +20,4 @@ params ["_unit", "_key"];
 
 if (_key != 1 || {!GVAR(pfeh_running)}) exitWith {};
 
-amp_slingload_pfeh_action = RIG_CANCEL;
+GVAR(pfeh_action) = RIG_CANCEL;

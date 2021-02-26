@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #######################
-#  AMP Setup Script  #
+#  SLR Setup Script  #
 #######################
 
 import os
@@ -13,26 +13,26 @@ import winreg
 
 ######## GLOBALS #########
 MAINDIR = "z"
-PROJECTDIR = "amp"
+PROJECTDIR = "slr"
 ##########################
 
 def main():
     FULLDIR = "{}\\{}".format(MAINDIR,PROJECTDIR)
     print("""
   ######################################
-  # AMP Development Environment Setup #
+  # SLR Development Environment Setup #
   ######################################
 
-  This script will create your AMP dev environment for you.
+  This script will create your SLR dev environment for you.
 
   Before you run this, you should already have:
     - A properly setup ACE3 Development Environment
 
   If you have not done those things yet, please abort this script in the next step and do so first.
 
-  This script will create two hard links on your system, both pointing to your AMP project folder:
-    [Arma 3 installation directory]\\{} => AMP project folder
-    P:\\{}                              => AMP project folder
+  This script will create two hard links on your system, both pointing to your SLR project folder:
+    [Arma 3 installation directory]\\{} => SLR project folder
+    P:\\{}                              => SLR project folder
     """.format(FULLDIR,FULLDIR))
     print("\n")
 

@@ -1,14 +1,14 @@
 class CfgFactionClasses {
     class NO_CATEGORY;
-    class AMP: NO_CATEGORY {
-        displayName = "AMP";
+    class SLR: NO_CATEGORY {
+        displayName = "SLR";
         priority = 2;
         side = 7;
     };
 };
 
 class CfgVehicleClasses {
-    class AMP_Vehicles {
-        displayName = "AMP Vehicles";
+    class SLR_Vehicles {
+        displayName = "SLR Vehicles";
     };
 };

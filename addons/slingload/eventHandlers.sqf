@@ -1,4 +1,4 @@
-["amp_slingload_localise", {
+["slr_slingload_localise", {
     params ["_heli"];
     private _heliOwner = owner _heli;
     {
@@ -8,7 +8,7 @@
     } forEach (ropes _heli + ropeAttachedObjects _heli);
 }] call CBA_fnc_addEventHandler;
 
-["amp_slingload_adjustRope", {
+["slr_slingload_adjustRope", {
     params ["_rope", "_speed", "_length", "_relative"];
     ropeUnwind [_rope, _speed, _length, _relative];
 }] call CBA_fnc_addEventHandler;
@@ -16,33 +16,33 @@
 ["Helicopter", "InitPost", {
     params ["_heli"];
     if (local _heli) then {
-        _heli addItemCargoGlobal ["amp_slingload_CargoSling", 4];
+        _heli addItemCargoGlobal ["slr_slingload_CargoSling", 4];
     };
     _heli addEventHandler ["RopeAttach", {
         //params ["_heli", "_rope", "_object"];
-        ["amp_slingload_localise", [_this # 0]] call CBA_fnc_serverEvent;
+        ["slr_slingload_localise", [_this # 0]] call CBA_fnc_serverEvent;
     }];
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
 ["Helicopter", "Local", {
     params ["_heli", "_isLocal"];
-    if _isLocal then {["amp_slingload_localise", [_heli]] call CBA_fnc_serverEvent;};
+    if _isLocal then {["slr_slingload_localise", [_heli]] call CBA_fnc_serverEvent;};
 }, true] call CBA_fnc_addClassEventHandler;
 
-["amp_slingload_apexFitting", "Deleted", {
+["slr_slingload_apexFitting", "Deleted", {
     params ["_apexFitting"];
-    private _cargo = _apexFitting getVariable ["amp_slingload_cargo4Fitting", objNull];
+    private _cargo = _apexFitting getVariable ["slr_slingload_cargo4Fitting", objNull];
     if !(isNull _cargo) then {
-        _cargo setVariable ["amp_slingload_ropes4Cargo", [], true];
+        _cargo setVariable ["slr_slingload_ropes4Cargo", [], true];
     };
 }, true] call CBA_fnc_addClassEventHandler;
 
-["amp_slingload_apexFitting", "Killed", {
+["slr_slingload_apexFitting", "Killed", {
     params ["_apexFitting"];
     deleteVehicle _apexFitting;
 }, true] call CBA_fnc_addClassEventHandler;
 
-["amp_slingload_apexFitting", "Init", {
+["slr_slingload_apexFitting", "Init", {
     (_this # 0) addEventHandler ["RopeBreak", {
         params ["_apexFitting"];
         if (

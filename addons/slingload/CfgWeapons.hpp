@@ -1,7 +1,7 @@
 class CfgWeapons {
     class ACE_EntrenchingTool;
 
-    class amp_slingload_CargoSling: ACE_EntrenchingTool {
+    class slr_slingload_CargoSling: ACE_EntrenchingTool {
         author = "Ampersand";
         displayName = "Cargo Sling";
         descriptionShort = "Used to rig cargo for sling loading";

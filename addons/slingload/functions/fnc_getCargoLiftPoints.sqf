@@ -9,8 +9,8 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Example:
- * [_cargo] call amp_slingload_fnc_getCargoLiftPoints
+ * Exslrle:
+ * [_cargo] call slr_slingload_fnc_getCargoLiftPoints
  */
 
 params ["_cargo"];

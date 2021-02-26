@@ -10,21 +10,21 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Example:
- * [_cargo, _unit] call amp_slingload_fnc_removeRigging
+ * Exslrle:
+ * [_cargo, _unit] call slr_slingload_fnc_removeRigging
  */
 
 params ["_cargo", "_player"];
 
-private _ropes = _cargo getVariable ["amp_slingload_ropes4Cargo", []];
+private _ropes = _cargo getVariable ["slr_slingload_ropes4Cargo", []];
 
 private _apexFitting = ropeAttachedTo _cargo;
 _ropes apply {ropeDestroy _x};
-if (_apexFitting isKindOf "amp_slingload_apexFitting") then {
+if (_apexFitting isKindOf "slr_slingload_apexFitting") then {
     deleteVehicle _apexFitting;
 };
 
-_cargo setVariable ["amp_slingload_liftPoints", [], true];
-_cargo setVariable ["amp_slingload_ropes4Cargo", [], true];
+_cargo setVariable ["slr_slingload_liftPoints", [], true];
+_cargo setVariable ["slr_slingload_ropes4Cargo", [], true];
 
 true

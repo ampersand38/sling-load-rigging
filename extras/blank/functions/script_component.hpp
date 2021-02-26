@@ -1,1 +1,1 @@
-#include "\z\amp\addons\blank\script_component.hpp"
+#include "\z\slr\addons\blank\script_component.hpp"

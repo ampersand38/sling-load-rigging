@@ -10,13 +10,13 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Example:
- * [_cargo, _unit] call amp_slingload_fnc_rigCargoAuto
- * [cursorObject, player] call compile preprocessFileLineNumbers '\z\amp\addons\slingload\functions\fnc_rigCargoAuto.sqf'
+ * Exslrle:
+ * [_cargo, _unit] call FUNC(rigCargo)Auto
+ * [cursorObject, player] call compile preprocessFileLineNumbers '\z\slr\addons\slingload\functions\fnc_rigCargoAuto.sqf'
  */
 
 params ["_cargo", "_unit"];
 
 private _liftPoints = (getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints")) apply {_cargo selectionPosition _x};
 
-[_cargo, _unit, _liftPoints] call amp_slingload_fnc_rigCargo;
+[_cargo, _unit, _liftPoints] call FUNC(rigCargo);
