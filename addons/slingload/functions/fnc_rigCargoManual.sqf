@@ -40,6 +40,7 @@ private _hook = "amp_slingload_hook" createVehicleLocal [0,0,0];
         if (amp_slingload_pfeh_action == RIG_ADD) then {
             private _hookShow = "amp_slingload_hook" createVehicleLocal [0,0,0];
             _hookShow setPos getPos _hook;
+            _hookShow setPosASL getPosASL _hook;
             _hookShow setDir (_hook getDir _cargo) - 90;
             amp_slingload_rigCargoHelpers pushBack _hookShow;
         };
@@ -74,6 +75,7 @@ private _hook = "amp_slingload_hook" createVehicleLocal [0,0,0];
             [_cargo, _unit, _liftPoints] call amp_slingload_fnc_rigCargo;
             _liftPoints = _liftPoints + (_cargo getVariable ["amp_slingload_liftPoints", []]);
             _cargo setVariable ["amp_slingload_liftPoints", _liftPoints, true];
+            private _liftPoints = GVAR(rigCargoHelpers) apply {(_cargo worldToModelVisual ASLToAGL getPosASL _x) vectorAdd [0,0,0.2]; };
         };
         {deleteVehicle _x} forEach amp_slingload_rigCargoHelpers;
         amp_slingload_rigCargoHelpers = [];
