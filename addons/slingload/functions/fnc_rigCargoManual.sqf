@@ -15,6 +15,26 @@ Author: Ampersand
 
 params ["_cargo", "_unit"];
 
+// Wrecks
+if (damage _cargo == 1) then {
+    private _wreckDummy = _cargo getVariable [QGVAR(wreckDummy), objNull];
+    if !(isNull _wreckDummy) then {
+        _cargo = _wreckDummy;
+    } else {
+        private _helper = createVehicle ["slr_slingload_wreckDummy", [0,0,0], [], 0, "CAN_COLLIDE"];
+        _helper allowDamage false;
+        _helper disableCollisionWith _cargo;
+        _helper setDir getDir _cargo;
+        private _pos = _cargo modelToWorld (getCenterOfMass _cargo);
+        _pos set [2, 0];
+        _helper setPos _pos;
+        _cargo attachTo [_helper];
+        _helper setMass getMass _cargo;
+        _cargo setVariable [QGVAR(wreckDummy), _helper, true];
+        _cargo = _helper;
+    };
+};
+
 [_unit, "blockThrow", "slr_slingload_rigCargoManual", true] call ace_common_fnc_statusEffect_set;
 
 //Show mouse buttons:

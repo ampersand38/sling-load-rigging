@@ -19,3 +19,4 @@ params ["_cargo", "_player"];
 !isNull ropeAttachedTo _cargo || {
     !((_cargo getVariable ["slr_slingload_ropes4Cargo", []]) isEqualTo [])
 }
+|| {!isNull (_cargo getVariable [QGVAR(wreckDummy), objNull])}

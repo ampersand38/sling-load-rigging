@@ -57,6 +57,9 @@
             <English>Sling Load Hook</English>
             <Chinesesimp>吊钩</Chinesesimp>
         </Key>
+        <Key ID="STR_SLR_SlingLoad_WreckDummy">
+            <English>Wreck Dummy</English>
+        </Key>
         <Key ID="STR_SLR_SlingLoad_AddLiftPoint">
             <English>Add Lift Point</English>
             <Chinesesimp>安装吊钩</Chinesesimp>

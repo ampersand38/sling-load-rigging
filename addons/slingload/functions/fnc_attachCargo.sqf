@@ -22,6 +22,10 @@ private _apexFitting = _unit getVariable ["slr_slingload_heldFitting", objNull];
 if (isNull _apexFitting) exitWith {false};
 private _cargo = _apexFitting getVariable ["slr_slingload_cargo4Fitting", objNull];
 if (isNull _cargo) exitWith {false};
+private _cargoWreck = _cargo getVariable [QGVAR(wreckDummy), objNull];
+if !(isNull _cargoWreck) then {
+    _cargo = _cargoWreck;
+};
 private _ropes4Cargo = _cargo getVariable ["slr_slingload_ropes4Cargo", []];
 
 private _lengths = [];

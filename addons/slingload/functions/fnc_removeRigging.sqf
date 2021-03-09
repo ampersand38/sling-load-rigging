@@ -23,6 +23,13 @@ _ropes apply {ropeDestroy _x};
 if (_apexFitting isKindOf "slr_slingload_apexFitting") then {
     deleteVehicle _apexFitting;
 };
+private _wreckDummy = _cargo getVariable [QGVAR(wreckDummy), objNull];
+if !(isNull _wreckDummy) then {
+    detach _cargo;
+    [_wreckDummy, _unit] call FUNC(removeRigging);
+    deleteVehicle _wreckDummy;
+    _cargo setVariable [QGVAR(wreckDummy), objNull, true];
+};
 
 _cargo setVariable ["slr_slingload_liftPoints", [], true];
 _cargo setVariable ["slr_slingload_ropes4Cargo", [], true];

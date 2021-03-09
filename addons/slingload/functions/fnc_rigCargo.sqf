@@ -27,6 +27,21 @@ if (_liftPoints isEqualTo []) then {
 };
 if (_liftPoints isEqualTo []) exitWith {hint "Use Manual Rig"; false};
 
+// Wrecks
+if (damage _cargo == 1) then {
+    private _helper = createVehicle ["slr_slingload_wreckDummy", [0,0,0], [], 0, "CAN_COLLIDE"];
+    _helper allowDamage false;
+    _helper disableCollisionWith _cargo;
+    _helper setDir getDir _cargo;
+    private _pos = _cargo modelToWorld (getCenterOfMass _cargo);
+    _pos set [2, 0];
+    _helper setPos _pos;
+    _cargo attachTo [_helper];
+    _helper setMass getMass _cargo;
+    _cargo setVariable [QGVAR(wreckDummy), _helper, true];
+    _cargo = _helper;
+};
+
 _apexFitting = createVehicle ["slr_slingload_apexFitting", _cargo modelToWorldVisual (boundingBoxReal _cargo # 1), [], 0, "CAN_COLLIDE"];
 _apexFitting allowDamage false;
 _apexFitting disableCollisionWith _cargo;
