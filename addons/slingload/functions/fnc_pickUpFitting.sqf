@@ -19,7 +19,7 @@ params ["_af", "_unit"];
 [_unit, "blockThrow", "slr_slingload_pickUpFitting", true] call ace_common_fnc_statusEffect_set;
 
 //Show mouse buttons:
-[localize "STR_ACE_Dragging_Drop", "", localize "STR_ACE_Dragging_LowerRaise"] call ace_interaction_fnc_showMouseHint;
+[localize "STR_ACE_Dragging_Drop", "", localize "STR_ACE_Dragging_RaiseLowerRotate"] call ace_interaction_fnc_showMouseHint;
 _unit setVariable ["slr_slingload_apexFittingEH", [_unit, "DefaultAction", {true}, {slr_slingload_holdingFitting = false}] call ace_common_fnc_AddActionEventHandler];
 
 GVAR(pfeh_running) = true;
