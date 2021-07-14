@@ -42,7 +42,8 @@ if (damage _cargo == 1) then {
     _cargo = _helper;
 };
 
-_apexFitting = createVehicle ["slr_slingload_apexFitting", _cargo modelToWorldVisual (boundingBoxReal _cargo # 1), [], 0, "CAN_COLLIDE"];
+_apexFitting = createVehicle ["slr_slingload_apexFitting", [0,0,0], [], 0, "CAN_COLLIDE"];
+_apexFitting setPosWorld (_cargo modelToWorldVisualWorld (boundingBoxReal _cargo # 1));
 _apexFitting allowDamage false;
 _apexFitting disableCollisionWith _cargo;
 _apexFitting disableCollisionWith _unit;
