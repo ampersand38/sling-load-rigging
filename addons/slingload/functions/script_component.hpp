@@ -7,3 +7,6 @@
 #define RIG_DN 3
 
 #define CARGOHOOKNAMES ["main", "forward", "aft"]
+#define CARGOHOOKINDEX_MAIN 0
+#define CARGOHOOKINDEX_FORWARD 1
+#define CARGOHOOKINDEX_AFT 2
