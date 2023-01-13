@@ -7,21 +7,25 @@ slr_customHooks = createHashMapFromArray [
     // Mohawk
     ["\A3\Air_F_Beta\Heli_Transport_02\Heli_Transport_02_F.p3d", [[], [0,1.85587 + 1.524,-2.60947], [0,1.85587 - 1.524,-2.60947]]],
 
-    //3CB
+    // 3CB
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3", [[], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3_armed", [[], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
 
-    //RHS
+    // RHS
     ["\rhsusf\addons\rhsusf_a2port_air\CH47\CH_47F", [[], [0,+1.9812-0.706448,-3.10134], [0,-1.9812-0.706448,-3.10134]]],
     ["\rhsusf\addons\rhsusf_ch53\rhsusf_ch53_e.p3d", [[], [0,+1.524+3.92882,-4.13195], [0,-1.524+3.92882,-4.13195]]],
 
-    //CUP
-    ["CUP\AirVehicles\CUP_AirVehicles_CH47\CUP_CH_47F.p3d", [[], [0,-0.325188+1.9812,-3.02169], [0,-0.325188-1.9812,-3.02169]]],
+    // CUP
+    ["\CUP\AirVehicles\CUP_AirVehicles_CH47\CUP_CH_47F.p3d", [[], [0,-0.325188+1.9812,-3.02169], [0,-0.325188-1.9812,-3.02169]]],
     ["\CUP\AirVehicles\CUP_AirVehicles_MH47E\CUP_MH47E.p3d", [[0,-0.084305,0.539414], [0,2.22729,0.64529], [0,-2.3959,0.433537]]],
     ["\cup\airvehicles\cup_airvehicles_ch53e\usec_ch53_e.p3d", [[], [0,1.524+4.30637,-4.25129], [0,-1.524+4.30637,-4.25129]]],
 
-    //kyo
-    ["\kyo_MH47E\kyo_MH47E.p3d", [[0.0695299,-0.760864,-2.14985],[0.0696049,3.86233,-1.9381],[0.0569674,1.20766,-1.64997]]]
+    // kyo
+    ["\kyo_MH47E\kyo_MH47E.p3d", [[0.0695299,-0.760864,-2.14985],[0.0696049,3.86233,-1.9381],[0.0569674,1.20766,-1.64997]]],
+
+    // TFC
+    ["\tfc_rcaf\addons\ch147\CH147F.p3d", [[-0,-0.191261,0.240921],[-0,2.82105,0.51302],[-0,-2.86031,0.292259]]],
+    ["\tfc_rcaf\addons\ch147\CH147F_CASEVAC.p3d", [[-0,-0.191261,0.240921],[-0,2.82105,0.51302],[-0,-2.86031,0.292259]]]
 ];
 ["Helicopter", "init", FUNC(addACEActions), true, [], true] call CBA_fnc_addClassEventHandler;
 
