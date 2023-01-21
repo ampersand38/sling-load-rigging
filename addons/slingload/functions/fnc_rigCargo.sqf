@@ -52,7 +52,7 @@ _apexFitting disableCollisionWith _unit;
 private _ropeLength = 10 max (sizeOf typeOf _cargo);
 private _ropes = [];
 {
-    private _rope = ropeCreate [_apexFitting, [0,0,0], _cargo, _x, _ropeLength, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
+    private _rope = ropeCreate [_apexFitting, "slingload0", _cargo, _x, _ropeLength, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
     _rope setVariable ["slr_slingload_point4Rope", _x, true];
     _rope setVariable ["slr_slingload_ropeLength", _ropeLength, true];
     //_rope disableCollisionWith _unit;

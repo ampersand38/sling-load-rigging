@@ -5,7 +5,8 @@ class CfgVehicles {
         displayName = CSTRING(SlingLoadApexFitting);
         _generalMacro = "slr_slingload_apexFitting";
         icon = "\a3\ui_f\data\IGUI\Cfg\VehicleToggles\SlingLoadRopeIconOn_ca.paa";
-        model = "\z\slr\addons\slingload\data\apexFitting.p3d";
+        //model = "\z\slr\addons\slingload\data\apexFitting.p3d";
+        model = "\z\slr\addons\slingload\data\ropeEndLoop.p3d";
         damageEffect = "";
         destrType = "";
         acre_hasInfantryPhone = 0;
@@ -43,4 +44,19 @@ class CfgVehicles {
         };
         */
     };
+    /*
+    class Rope;
+    class slr_Rope : Rope {
+    model = "\z\slr\addons\slingload\data\rope.p3d";
+    segmentType = "slr_RopeSegment";
+};
+    class slr_RopeLadder : Rope {
+        model = "\z\slr\addons\slingload\data\ropeLadder.p3d";
+        segmentType = "slr_RopeLadderSegment";
+    };
+    class slr_RopeLadder2 : Rope {
+        model = "\z\slr\addons\slingload\data\ropeLadder2.p3d";
+        segmentType = "slr_RopeLadderSegment2";
+    };
+    */
 };

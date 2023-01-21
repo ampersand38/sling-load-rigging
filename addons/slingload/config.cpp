@@ -18,4 +18,5 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
+#include "CfgNonAIVehicles.hpp"
 #include "CfgWeapons.hpp"
