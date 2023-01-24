@@ -1,4 +1,9 @@
 class CfgVehicles {
+    class Plane_Base_F {};
+    class VTOL_Base_F: Plane_Base_F {
+        slingLoadMaxCargoMass = 13000;
+    };
+
     class ace_refuel_helper;
     class slr_slingload_apexFitting: ace_refuel_helper {
         author = "Ampersand";
