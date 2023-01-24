@@ -30,7 +30,7 @@ if ("slingload0" in (_heli selectionNames "MEMORY")) then {
 };
 
 private _heliModel = getText (configOf _heli >> "model");
-if !(_heliModel in slr_customHooks) exitWith { true };
+if !(_heliModel in slr_customHooks) exitWith { false };
 private _customHooksInfo = slr_customHooks get _heliModel;
 
 // Custom hook info
