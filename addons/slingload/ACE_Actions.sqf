@@ -31,8 +31,7 @@ private _icon = "\a3\ui_f\data\igui\cfg\vehicletoggles\slingloadropeiconon2_ca.p
     [_x, "init", FUNC(addACEActions), true, [], true] call CBA_fnc_addClassEventHandler;
 } forEach [
     "Helicopter",
-    "VTOL_01_base_F",
-    "VTOL_02_base_F",
+    "VTOL_Base_F",
     "CUP_B_MV22_USMC"
 ];
 
