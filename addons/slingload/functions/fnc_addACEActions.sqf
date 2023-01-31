@@ -23,23 +23,30 @@ private _condition = slr_slingload_fnc_canAttachCargo;
 private _position = [];
 private _distance = 3.5;
 
-if ("slingload0" in (_heli selectionNames "MEMORY")) then {
-    _position = _heli selectionPosition "slingload0";
-    _action = ["slr_slingload_attachCargo0", _displayName, _icon, _statement, _condition, {}, CARGOHOOKINDEX_MAIN, _position, _distance] call ace_interact_menu_fnc_createAction;
-    [_heli, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+private _heliConfig = configOf _heli;
+private _heliModel = getText (_heliConfig >> "model");
+if (_heliModel in slr_customHooks) exitWith {
+    private _customHooksInfo = slr_customHooks get _heliModel;
+
+    // Custom hook info
+    //["model.p3d",[main, forward, aft]],
+    {
+        private _position = if (_x isNotEqualTo []) then {
+            _action = [format ["slr_slingload_attachCargo%1", _forEachIndex], _displayName, _icon, _statement, _condition, {}, _forEachIndex, _x, _distance] call ace_interact_menu_fnc_createAction;
+            [_heli, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+        };
+    } forEach _customHooksInfo;
+
+    true
 };
 
-private _heliModel = getText (configOf _heli >> "model");
-if !(_heliModel in slr_customHooks) exitWith { false };
-private _customHooksInfo = slr_customHooks get _heliModel;
+private _slingLoadMemoryPoint = getText (_heliConfig >> "slingLoadMemoryPoint");
+if (_slingLoadMemoryPoint in (_heli selectionNames "MEMORY")) exitWith {
+    _position = _heli selectionPosition _slingLoadMemoryPoint;
+    _action = ["slr_slingload_attachCargo0", _displayName, _icon, _statement, _condition, {}, CARGOHOOKINDEX_MAIN, _position, _distance] call ace_interact_menu_fnc_createAction;
+    [_heli, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 
-// Custom hook info
-//["model.p3d",[main, forward, aft]],
-{
-    private _position = if (_x isNotEqualTo []) then {
-        _action = [format ["slr_slingload_attachCargo%1", _forEachIndex], _displayName, _icon, _statement, _condition, {}, _forEachIndex, _x, _distance] call ace_interact_menu_fnc_createAction;
-        [_heli, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
-    };
-} forEach _customHooksInfo;
+    true
+};
 
-true
+false

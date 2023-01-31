@@ -13,6 +13,9 @@ slr_customHooks = createHashMapFromArray [
     // Xi'an
     ["\A3\Air_F_Exp\VTOL_02\VTOL_02_vehicle_F.p3d", [[0.000961972,-0.840889,-2.51653]]],
 
+    // GM
+    ["\gm\gm_vehicles\gm_air\gm_helicopters\gm_ch53\gm_ch53g.p3d",[[-0.0295088,3.23667,-3.18058],[-0.0295088,6.23666,-3.18058],[-0.0295088,0.236665,-3.18058]]],
+
     // 3CB
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3", [[0.212563,3.07458,-2.89532], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3_armed", [[0.212563,3.07458,-2.89532], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
@@ -47,3 +50,11 @@ slr_customHooks = createHashMapFromArray [
 #include "XEH_PREP.hpp"
 
 ADDON = true;
+
+/*
+// Model and hook pos
+private _h = cursorObject;
+private _cfg = configOf _h;
+private _pos = _h  selectionPosition (getText (_cfg >> "slingLoadMemoryPoint"));
+[getText (_cfg >> "model"), [_pos, _pos vectorAdd [0,3,0], _pos vectorAdd [0,-3,0]]]
+*/
