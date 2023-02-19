@@ -40,10 +40,9 @@ if (_heliModel in slr_customHooks) exitWith {
     true
 };
 
-private _slingLoadMemoryPoint = getText (_heliConfig >> "slingLoadMemoryPoint");
-if (_slingLoadMemoryPoint in (_heli selectionNames "MEMORY")) exitWith {
-    _position = _heli selectionPosition _slingLoadMemoryPoint;
-    _action = ["slr_slingload_attachCargo0", _displayName, _icon, _statement, _condition, {}, CARGOHOOKINDEX_MAIN, _position, _distance] call ace_interact_menu_fnc_createAction;
+private _slingLoadPosition = _heli selectionPosition getText (_heliConfig >> "slingLoadMemoryPoint");
+if (_slingLoadPosition isNotEqualTo [0, 0, 0]) exitWith {
+    _action = ["slr_slingload_attachCargo0", _displayName, _icon, _statement, _condition, {}, CARGOHOOKINDEX_MAIN, _slingLoadPosition, _distance] call ace_interact_menu_fnc_createAction;
     [_heli, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 
     true
