@@ -51,7 +51,15 @@ private _cargoHookPosition = if (_heliModel in slr_customHooks) then {
     private _customHooksInfo = slr_customHooks get _heliModel;
     _customHooksInfo select _cargoHookIndex
 } else {
-    _heli selectionPosition "slingload0"
+    private _heliType = typeOf _heli;
+    if (_heliType in slr_customHooks) then {
+        private _customHooksInfo = slr_customHooks get _heliType;
+        _customHooksInfo select _cargoHookIndex
+    } else {
+        // No custom hooks
+        private _slingLoadMemoryPoint = getText (configOf _heli >> "slingLoadMemoryPoint");
+        _heli selectionPosition _slingLoadMemoryPoint
+    }
 };
 
 private _ropes4Hook = _heli getVariable [_cargoHookName, []];

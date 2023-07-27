@@ -25,9 +25,11 @@ private _distance = 3.5;
 
 private _heliConfig = configOf _heli;
 private _heliModel = getText (_heliConfig >> "model");
-if (_heliModel in slr_customHooks) exitWith {
-    private _customHooksInfo = slr_customHooks get _heliModel;
-
+private _customHooksInfo = slr_customHooks getOrDefaultCall [_heliModel, {
+    private _heliType = typeOf _heli;
+    slr_customHooks getOrDefault [_heliType, []];
+}];
+if (_customHooksInfo isNotEqualTo []) exitWith {
     // Custom hook info
     //["model.p3d",[main, forward, aft]],
     {
