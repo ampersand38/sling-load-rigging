@@ -12,6 +12,7 @@
  *
  * Exslrle:
  * [_heli, _unit] call slr_slingload_fnc_canAttachCargo
+ * [cursorObject, ACE_player] call slr_slingload_fnc_canAttachCargo
  */
 
 params ["_heli", "_player"];
@@ -19,4 +20,8 @@ params ["_heli", "_player"];
 if (typeOf _heli isEqualTo "slr_slingload_apexFitting") exitWith { false };
 
 !isNull (_player getVariable ["slr_slingload_heldFitting", objNull])
-&& {getNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "slingLoadMaxCargoMass") > 0}
+&& {
+    private _cfg = configOf _heli;
+    getText (_cfg >> "model") in slr_customHooks
+    || {getNumber (_cfg >> "slingLoadMaxCargoMass") > 0}
+}

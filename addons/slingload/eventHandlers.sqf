@@ -13,21 +13,23 @@
     ropeUnwind [_rope, _speed, _length, _relative];
 }] call CBA_fnc_addEventHandler;
 
-["Helicopter", "InitPost", {
-    params ["_heli"];
-    if (local _heli) then {
-        _heli addItemCargoGlobal ["slr_slingload_CargoSling", 4];
-    };
-    _heli addEventHandler ["RopeAttach", {
-        //params ["_heli", "_rope", "_object"];
-        ["slr_slingload_localise", [_this # 0]] call CBA_fnc_serverEvent;
-    }];
-}, true, [], true] call CBA_fnc_addClassEventHandler;
+{
+    [_x, "InitPost", {
+        params ["_heli"];
+        if (local _heli) then {
+            _heli addItemCargoGlobal ["slr_slingload_CargoSling", 4];
+        };
+        _heli addEventHandler ["RopeAttach", {
+            //params ["_heli", "_rope", "_object"];
+            ["slr_slingload_localise", [_this # 0]] call CBA_fnc_serverEvent;
+        }];
+    }, true, [], true] call CBA_fnc_addClassEventHandler;
 
-["Helicopter", "Local", {
-    params ["_heli", "_isLocal"];
-    if _isLocal then {["slr_slingload_localise", [_heli]] call CBA_fnc_serverEvent;};
-}, true] call CBA_fnc_addClassEventHandler;
+    [_x, "Local", {
+        params ["_heli", "_isLocal"];
+        if _isLocal then {["slr_slingload_localise", [_heli]] call CBA_fnc_serverEvent;};
+    }, true] call CBA_fnc_addClassEventHandler;
+} forEach ["Helicopter", "VTOL_Base_F"];
 
 ["slr_slingload_apexFitting", "Deleted", {
     params ["_apexFitting"];
