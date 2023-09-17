@@ -1,9 +1,8 @@
-release/*
+*.biprivatekey
 *.cache
 *.pbo
-texHeaders.bin
-*.swp
 *.swo
-*.biprivatekey
+*.swp
+.hemttout
+texHeaders.bin
 Thumbs.db
-hemtt.exe
