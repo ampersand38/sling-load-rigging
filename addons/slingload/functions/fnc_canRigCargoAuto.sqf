@@ -10,7 +10,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_cargo, _unit] call slr_slingload_fnc_canRigCargoAuto
  * [(curatorSelected # 0 # 0), player] call slr_slingload_fnc_canRigCargoAuto
  */

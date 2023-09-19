@@ -11,7 +11,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_cargo, _unit] call slr_slingload_fnc_adjustRigging
  * [cursorObject, player] call slr_slingload_fnc_adjustRigging
  */
@@ -31,7 +31,7 @@ private _sphere = objNull;
 if _all then {
     _unit setVariable ["slr_slingload_ropesBeingAdjusted", _cargo getVariable ["slr_slingload_ropes4Cargo", []]];
 } else {
-    _sphere = "Sign_Sphere10cm_F" createVehicleLocal [0,0,0];
+    _sphere = "Sign_Sphere10cm_F" createVehicleLocal [0, 0, 0];
     _sphere hideObject true;
 };
 

@@ -10,7 +10,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_cargo, _unit] call FUNC(rigCargo)Auto
  * [cursorObject, player] call compile preprocessFileLineNumbers '\z\slr\addons\slingload\functions\fnc_rigCargoAuto.sqf'
  */

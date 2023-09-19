@@ -9,7 +9,7 @@ Author: Ampersand
 * Return Value:
 * Exit position vehicle model space <ARRAY>
 
-* Exslrle:
+* Example:
 * [cursorObject, ACE_Player] call FUNC(rigCargo)Manual
 */
 
@@ -21,7 +21,7 @@ if (damage _cargo == 1) then {
     if !(isNull _wreckDummy) then {
         _cargo = _wreckDummy;
     } else {
-        private _helper = createVehicle ["slr_slingload_wreckDummy", [0,0,0], [], 0, "CAN_COLLIDE"];
+        private _helper = createVehicle ["slr_slingload_wreckDummy", [0, 0, 0], [], 0, "CAN_COLLIDE"];
         _helper allowDamage false;
         _helper disableCollisionWith _cargo;
         _helper setDir getDir _cargo;
@@ -45,7 +45,7 @@ GVAR(pfeh_running) = true;
 GVAR(pfeh_action) = RIG_WAITING;
 GVAR(rigCargoHelpers) = [];
 
-private _hook = "slr_slingload_hook" createVehicleLocal [0,0,0];
+private _hook = "slr_slingload_hook" createVehicleLocal [0, 0, 0];
 
 // rig lift points
 [{

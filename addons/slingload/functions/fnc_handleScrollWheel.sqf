@@ -9,7 +9,7 @@
  * Return Value:
  * Handled <BOOL>
  *
- * Exslrle:
+ * Example:
  * [1.2] call slr_slingload_fnc_HandleScrollWheel;
  *
  * Public: No

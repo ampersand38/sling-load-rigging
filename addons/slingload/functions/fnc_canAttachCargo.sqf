@@ -10,7 +10,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_heli, _unit] call slr_slingload_fnc_canAttachCargo
  * [cursorObject, ACE_player] call slr_slingload_fnc_canAttachCargo
  */

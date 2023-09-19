@@ -9,7 +9,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_cargo] call slr_slingload_fnc_getCargoLiftPoints
  */
 

@@ -10,7 +10,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_heli, _unit] call slr_slingload_fnc_canReleaseCargo
  * [vehicle player, player] call slr_slingload_fnc_canReleaseCargo
  */
