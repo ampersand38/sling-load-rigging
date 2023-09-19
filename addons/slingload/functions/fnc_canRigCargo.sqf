@@ -16,6 +16,8 @@
 
 params ["_cargo", "_unit"];
 
+if !([_unit, _cargo, []] call ace_common_fnc_canInteractWith) exitWith {false};
+
 if !("slr_slingload_CargoSling" in (_unit call ace_common_fnc_uniqueItems)) exitWith {false};
 
 if ((typeOf _cargo) isEqualTo "slr_slingload_apexFitting") exitWith {false};

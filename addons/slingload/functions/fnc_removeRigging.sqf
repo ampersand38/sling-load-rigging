@@ -23,6 +23,10 @@ _ropes apply {ropeDestroy _x};
 if (_apexFitting isKindOf "slr_slingload_apexFitting") then {
     deleteVehicle _apexFitting;
 };
+if (_apexFitting isKindOf "Air") then {
+    private _pendants = (attachedObjects _apexFitting) select {_x isKindOf "slr_slingload_apexFitting"};
+    _pendants apply {deleteVehicle _x};
+};
 private _wreckDummy = _cargo getVariable [QGVAR(wreckDummy), objNull];
 if !(isNull _wreckDummy) then {
     detach _cargo;

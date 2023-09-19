@@ -2,6 +2,8 @@
 
 ADDON = false;
 
+#include "initSettings.sqf"
+
 slr_customHooks = createHashMapFromArray [
     //["model.p3d",[main, forward, aft]],
     ["\A3\Air_F_Orange\UAV_06\UAV_06_F.p3d", [[0,0,-0.2]]],

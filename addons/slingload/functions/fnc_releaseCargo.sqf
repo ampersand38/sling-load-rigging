@@ -20,7 +20,8 @@ private _hooksToRelease = [CARGOHOOKNAMES, [_cargoHookName]] select (toLower _ca
 
 {
     {
-        ropeDestroy _x
+        if (_x isKindOf "Rope") then {ropeDestroy _x};
+        if (_x isKindOf "slr_slingload_apexFitting") then {deleteVehicle _x};
     } forEach (_heli getVariable ["slr_slingload_cargoHook" + _x, []]);
     _heli setVariable ["slr_slingload_cargoHook" + _x, [], true];
 } forEach _hooksToRelease;

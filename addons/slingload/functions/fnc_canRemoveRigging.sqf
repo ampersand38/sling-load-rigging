@@ -16,6 +16,8 @@
 //slr_slingload_fnc_canRigCargo = {
 params ["_cargo", "_player"];
 
+if !([_unit, _cargo, []] call ace_common_fnc_canInteractWith) exitWith {false};
+
 !isNull ropeAttachedTo _cargo || {
     !((_cargo getVariable ["slr_slingload_ropes4Cargo", []]) isEqualTo [])
 }

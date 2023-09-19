@@ -48,6 +48,11 @@
     (_this # 0) addEventHandler ["RopeBreak", {
         params ["_apexFitting"];
         if (
+            slr_setting_usePendant
+            && {_apexFitting getVariable ["slr_isAttached", false]}
+        ) exitWith {};
+
+        if (
             (ropeAttachedObjects _apexFitting isEqualTo [])
             ||
             {ropes _apexFitting isEqualTo []}

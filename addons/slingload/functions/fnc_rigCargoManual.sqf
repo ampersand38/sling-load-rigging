@@ -58,25 +58,27 @@ private _hook = "slr_slingload_hook" createVehicleLocal [0, 0, 0];
 
     if (GVAR(pfeh_action) < RIG_CANCEL) then {
         if (GVAR(pfeh_action) == RIG_ADD) then {
-            private _hookShow = "slr_slingload_hook" createVehicleLocal [0,0,0];
-            _hookShow setPosASL getPosASL _hook;
+            private _hookShow = "slr_slingload_hook" createVehicleLocal [0, 0, 0];
+            //_hookShow setPosASL getPosASL _hook;
+            private _pos = _cargo worldToModelVisual (ASLtoAGL getPosASL _hook);
+            _hookShow attachTo [_cargo, _pos];
             _hookShow setDir (_hook getDir _cargo) - 90;
             GVAR(rigCargoHelpers) pushBack _hookShow;
         };
         // position helper
         private _basePosASL = eyePos _unit;
-        private _lookDirVector = ([positionCameraToWorld [0,0,0], positionCameraToWorld [-0.3,0,0]] select (cameraView == "EXTERNAL")) vectorFromTo (positionCameraToWorld [0,-0.25,1]);
+        private _lookDirVector = ([positionCameraToWorld [0, 0, 0], positionCameraToWorld [-0.3,0,0]] select (cameraView == "EXTERNAL")) vectorFromTo (positionCameraToWorld [0,-0.25,1]);
+        private _pos = _basePosASL vectorAdd _lookDirVector;
 
-        private _intersections = lineIntersectsSurfaces [_basePosASL, _basePosASL vectorAdd _lookDirVector, _unit];
-        if (_intersections isEqualTo []) then {
-            _hook setPosASL (_basePosASL vectorAdd _lookDirVector);
-            _hook setDir (_hook getDir _cargo) - 90;
-        } else {
-            // Watching cargo
-            (_intersections # 0) params ["_intersectPosASL", "", "_intersectObject"];
-            _hook setPosASL ([[0,0,0], _intersectPosASL] select (_intersectObject == _cargo));
-            _hook setDir (_hook getDir _cargo) - 90;
+        private _intersection = lineIntersectsSurfaces [
+            _basePosASL, _basePosASL vectorAdd _lookDirVector, _unit, _hook
+        ] param [0, []];
+        if (_intersection isNotEqualTo []) then {
+            _intersection params ["_intersectPosASL", "", "_intersectObject"];
+            _pos = _intersectPosASL;
         };
+        _hook setPosASL _pos;
+        _hook setDir (_hook getDir _cargo) - 90;
         GVAR(pfeh_action) = RIG_WAITING;
     } else {
         [_pfID] call CBA_fnc_removePerFrameHandler;

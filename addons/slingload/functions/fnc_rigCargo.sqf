@@ -29,7 +29,7 @@ if (_liftPoints isEqualTo []) exitWith {hint "Use Manual Rig"; false};
 
 // Wrecks
 if (damage _cargo == 1) then {
-    private _helper = createVehicle ["slr_slingload_wreckDummy", [0,0,0], [], 0, "CAN_COLLIDE"];
+    private _helper = createVehicle ["slr_slingload_wreckDummy", [0, 0, 0], [], 0, "CAN_COLLIDE"];
     _helper allowDamage false;
     _helper disableCollisionWith _cargo;
     _helper setDir getDir _cargo;
@@ -42,7 +42,7 @@ if (damage _cargo == 1) then {
     _cargo = _helper;
 };
 
-_apexFitting = createVehicle ["slr_slingload_apexFitting", [0,0,0], [], 0, "CAN_COLLIDE"];
+_apexFitting = createVehicle ["slr_slingload_apexFitting", [0, 0, 0], [], 0, "CAN_COLLIDE"];
 _apexFitting attachTo [_cargo, boundingBoxReal _cargo # 1];
 detach _apexFitting;
 _apexFitting allowDamage false;
@@ -52,7 +52,10 @@ _apexFitting disableCollisionWith _unit;
 private _ropeLength = 10 max (sizeOf typeOf _cargo);
 private _ropes = [];
 {
-    private _rope = ropeCreate [_apexFitting, "slingload0", _cargo, _x, _ropeLength, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
+    //private _rope = ropeCreate [_apexFitting, "slingload0", _cargo, _x, _ropeLength, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
+    private _rope = ropeCreate [
+        _apexFitting, [0, 0, -0.7], _cargo, _x, _ropeLength, ["", [0, 0, -1]], ["slr_RopeEnd", [0, 0, 1]], "slr_Rope"
+    ];
     _rope setVariable ["slr_slingload_point4Rope", _x, true];
     _rope setVariable ["slr_slingload_ropeLength", _ropeLength, true];
     //_rope disableCollisionWith _unit;
