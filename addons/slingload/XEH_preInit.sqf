@@ -15,6 +15,8 @@ slr_customHooks = createHashMapFromArray [
     ["\A3\Air_F_Exp\VTOL_01\VTOL_01_armed_F.p3d", [[0.000470325,2.51264,-6.03068], [0.000470325,2.51264+3,-6.03068], [0.000470325,2.51264-3,-6.03068]]],
     // Xi'an
     ["\A3\Air_F_Exp\VTOL_02\VTOL_02_vehicle_F.p3d", [[0.000961972,-0.840889,-2.51653]]],
+    // Kajman
+    ["\A3\Air_F_Beta\Heli_Attack_02\Heli_Attack_02_F.p3d", [[0,1.04233,-2.19047]]],
 
     // GM
     ["\gm\gm_vehicles\gm_air\gm_helicopters\gm_ch53\gm_ch53g.p3d",[[-0.0295088,3.23667,-3.18058],[-0.0295088,6.23666,-3.18058],[-0.0295088,0.236665,-3.18058]]],
@@ -65,6 +67,10 @@ slr_customHooks = createHashMapFromArray [
 
     // TF373
     ["TF373_SOAR_MH47G", [[-0.032194,1.65714,-2.20174],[-0.0196315,-0.745838,-2.40055],[-0.0195565,3.87736,-2.1888]]],
+
+    // PSZ: Polish Armed Forces
+    ["psz\air\mi24\psz_mi24d", [[0,2.5044,-2.27104]]],
+    ["psz\air\mi17\PSZ_Mi17_1W_PKT", [[0,1.98528,-2.41888]]],
 
     // TFC
     ["\tfc_rcaf\addons\ch147\CH147F.p3d", [[-0,-0.191261,0.240921],[-0,2.82105,0.51302],[-0,-2.86031,0.292259]]],
