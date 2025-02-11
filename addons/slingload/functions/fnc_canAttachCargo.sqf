@@ -22,7 +22,7 @@ if (typeOf _heli isEqualTo "slr_slingload_apexFitting") exitWith { false };
 private _apexFitting = _player getVariable ["slr_slingload_heldFitting", objNull];
 private _cargo = _apexFitting getVariable ["slr_slingload_cargo4Fitting", objNull];
 
-_cargo isNotEqualTo _heli;
+_cargo isNotEqualTo _heli
 && {!isNull _cargo}
 && {!isNull _apexFitting}
 && {
