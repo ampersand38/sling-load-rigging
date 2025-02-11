@@ -19,7 +19,12 @@ params ["_heli", "_player"];
 
 if (typeOf _heli isEqualTo "slr_slingload_apexFitting") exitWith { false };
 
-!isNull (_player getVariable ["slr_slingload_heldFitting", objNull])
+private _apexFitting = _player getVariable ["slr_slingload_heldFitting", objNull];
+private _cargo = _apexFitting getVariable ["slr_slingload_cargo4Fitting", objNull];
+
+_cargo isNotEqualTo _heli;
+&& {!isNull _cargo}
+&& {!isNull _apexFitting}
 && {
     private _cfg = configOf _heli;
     getText (_cfg >> "model") in slr_customHooks
