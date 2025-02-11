@@ -9,7 +9,7 @@ Moves player out of vehicle at get-in memory point closest to where they are loo
 * Return Value:
 * Exit position (vehicle model space) <ARRAY>
 
-* Exslrle:
+* Example:
 * [] call dtv_fnc_dismount
 * [] execVM "fnc_dismount.sqf"
 */

@@ -10,7 +10,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_heli, "main"] call slr_slingload_fnc_releaseCargo
  */
 

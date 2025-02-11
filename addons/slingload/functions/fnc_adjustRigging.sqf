@@ -11,7 +11,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_cargo, _unit] call slr_slingload_fnc_adjustRigging
  * [cursorObject, player] call slr_slingload_fnc_adjustRigging
  */

@@ -9,7 +9,7 @@
  * Return Value:
  * 0: Success <BOOLEAN>
  *
- * Exslrle:
+ * Example:
  * [_heli] call slr_slingload_fnc_addACEActions
  */
 
