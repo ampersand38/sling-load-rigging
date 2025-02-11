@@ -25,6 +25,11 @@ slr_customHooks = createHashMapFromArray [
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3", [[0.212563,3.07458,-2.89532], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3_armed", [[0.212563,3.07458,-2.89532], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
     ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\air\UK3CB_Factions_Vehicles_Osprey\uk3cb_osprey.p3d", [[-0.00693226,0.768486,-3.14963], [-0.00693226,0.768486+3,-3.14963], [-0.00693226,0.768486-3,-3.14963]]],
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\air\UK3CB_Factions_Vehicles_Osprey\uk3cb_osprey_m2.p3d", [[-0.00693226,0.768486,-3.14963], [-0.00693226,0.768486+3,-3.14963], [-0.00693226,0.768486-3,-3.14963]]],
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\air\UK3CB_Factions_Vehicles_Osprey\uk3cb_osprey_m240.p3d", [[-0.00693226,0.768486,-3.14963], [-0.00693226,0.768486+3,-3.14963], [-0.00693226,0.768486-3,-3.14963]]],
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\air\UK3CB_Factions_Vehicles_Osprey\uk3cb_osprey_idws.p3d", [[-0.00693226,0.768486,-3.14963], [-0.00693226,0.768486+3,-3.14963], [-0.00693226,0.768486-3,-3.14963]]],
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\air\UK3CB_Factions_Vehicles_Osprey\uk3cb_osprey_idws_m2.p3d", [[-0.00693226,0.768486,-3.14963], [-0.00693226,0.768486+3,-3.14963], [-0.00693226,0.768486-3,-3.14963]]],
+    ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\air\UK3CB_Factions_Vehicles_Osprey\uk3cb_osprey_idws_m240.p3d", [[-0.00693226,0.768486,-3.14963], [-0.00693226,0.768486+3,-3.14963], [-0.00693226,0.768486-3,-3.14963]]],
 
     // RHS
     ["\rhsusf\addons\rhsusf_a2port_air\CH47\CH_47F", [[-5.24521e-006,-0.706448,-3.10134], [0,+1.9812-0.706448,-3.10134], [0,-1.9812-0.706448,-3.10134]]],
