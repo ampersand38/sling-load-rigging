@@ -9,7 +9,7 @@ class CfgPatches {
         requiredAddons[] = {"ace_common"};
         author = "Ampersand";
         authors[] = {"Ampersand"};
-        authorUrl = "https://github.com/ampersand38/slr";
+        authorUrl = "https://github.com/ampersand38/sling-load-rigging";
         VERSION_CONFIG;
     };
 };
