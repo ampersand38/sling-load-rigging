@@ -21,6 +21,10 @@ slr_customHooks = createHashMapFromArray [
     // GM
     ["\gm\gm_vehicles\gm_air\gm_helicopters\gm_ch53\gm_ch53g.p3d",[[-0.0295088,3.23667,-3.18058],[-0.0295088,6.23666,-3.18058],[-0.0295088,0.236665,-3.18058]]],
 
+    // SOG PF
+    ["\vn\air_f_vietnam_03\ch47\vn_air_ch47_01.p3d",[[-0.0229115,1.44711,-3],[-0.0229115,1.44711+3,-3],[-0.0229115,1.44711-3,-3]]],
+    ["\vn\air_f_vietnam_03\ch47\vn_air_ach47_01.p3d",[[-0.0229115,1.44711,-3],[-0.0229115,1.44711+3,-3],[-0.0229115,1.44711-3,-3]]],
+
     // 3CB
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3", [[0.212563,3.07458,-2.89532], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
     ["\uk3cb_baf_vehicles\addons\uk3cb_baf_vehicles_merlin\uk3cb_merlin_hc3_armed", [[0.212563,3.07458,-2.89532], [0,6.07458,-2.89532], [0,0.07458,-2.89532]]],
