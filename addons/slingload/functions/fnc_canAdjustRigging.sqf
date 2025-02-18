@@ -19,6 +19,6 @@ params ["_cargo", "_player"];
 
 !GVAR(pfeh_running) && {
     (!isNull ropeAttachedTo _cargo || {
-        !((_cargo getVariable ["slr_slingload_ropes4Cargo", []]) isEqualTo [])
+        (_cargo getVariable ["slr_slingload_ropes4Cargo", []]) isNotEqualTo []
     })
 }

@@ -58,9 +58,9 @@ if _all then {
                     _liftPoint = _x;
                 };
             } forEach _liftPoints;
-            if !(_liftPoint isEqualTo []) then {
+            if (_liftPoint isNotEqualTo []) then {
                 private _ropes = (_cargo getVariable ["slr_slingload_ropes4Cargo", []])  select {(_x getVariable ["slr_slingload_point4Rope", []]) isEqualTo _liftPoint};
-                if !(_ropes isEqualTo []) then {
+                if (_ropes isNotEqualTo []) then {
                     _sphere attachTo [_cargo, _liftPoint];
                     _sphere hideObject false;
                     _unit setVariable ["slr_slingload_ropesBeingAdjusted", _ropes];

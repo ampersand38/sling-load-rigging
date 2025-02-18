@@ -22,6 +22,6 @@ if ((typeOf _cargo) isEqualTo "slr_slingload_apexFitting") exitWith {false};
 if GVAR(pfeh_running) exitWith {false};
 
 if (_cargo getVariable ["slr_slingload_isRiggingEnabled", false]) exitWith {true};
-if !(getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints") isEqualTo []) exitWith {true};
+if (getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints") isNotEqualTo []) exitWith {true};
 
 _cargo isKindOf "LandVehicle" || {_cargo isKindOf "Air" || {_cargo isKindOf "Ship"}}
