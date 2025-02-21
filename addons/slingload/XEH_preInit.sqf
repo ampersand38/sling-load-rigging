@@ -2,6 +2,11 @@
 
 ADDON = false;
 
+// get model and hook pos
+// _v = call amp_fnc_gv; [getText (configOf _v >> "model"), getNumber (configOf _v >> "slingLoadMaxCargoMass"), _v selectionPosition "slingload0"]
+// move vehicle above player
+// _v = call amp_fnc_gv; _v setPosASL (getPosASL player vectorAdd ((_v selectionPosition "slingload0") vectorMultiply -1))
+
 slr_customHooks = createHashMapFromArray [
     //["model.p3d",[main, forward, aft]],
     ["\A3\Air_F_Orange\UAV_06\UAV_06_F.p3d", [[0,0,-0.2]]],
@@ -17,6 +22,8 @@ slr_customHooks = createHashMapFromArray [
     ["\A3\Air_F_Exp\VTOL_02\VTOL_02_vehicle_F.p3d", [[0.000961972,-0.840889,-2.51653]]],
     // Kajman
     ["\A3\Air_F_Beta\Heli_Attack_02\Heli_Attack_02_F.p3d", [[0,1.04233,-2.19047]]],
+    // Darter
+    ["\A3\Drones_F\Air_F_Gamma\UAV_01\UAV_01_F.p3d", [[0,0,-1]]],
 
     // GM
     ["\gm\gm_vehicles\gm_air\gm_helicopters\gm_ch53\gm_ch53g.p3d",[[-0.0295088,3.23667,-3.18058],[-0.0295088,6.23666,-3.18058],[-0.0295088,0.236665,-3.18058]]],
@@ -36,8 +43,8 @@ slr_customHooks = createHashMapFromArray [
     ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\air\UK3CB_Factions_Vehicles_Osprey\uk3cb_osprey_idws_m240.p3d", [[-0.00693226,0.768486,-3.14963], [-0.00693226,0.768486+3,-3.14963], [-0.00693226,0.768486-3,-3.14963]]],
 
     // RHS
-    ["\rhsusf\addons\rhsusf_a2port_air\CH47\CH_47F", [[-5.24521e-006,-0.706448,-3.10134], [0,+1.9812-0.706448,-3.10134], [0,-1.9812-0.706448,-3.10134]]],
-    ["\rhsusf\addons\rhsusf_ch53\rhsusf_ch53_e.p3d", [[-0.0495522,3.92882,-4.13195], [0,+1.524+3.92882,-4.13195], [0,-1.524+3.92882,-4.13195]]],
+    ["\rhsusf\addons\rhsusf_a2port_air\CH47\CH_47F", [[0,-0.706448,-3.10134], [0,+1.9812-0.706448,-3.10134], [0,-1.9812-0.706448,-3.10134]]],
+    ["\rhsusf\addons\rhsusf_ch53\rhsusf_ch53_e.p3d", [[0,3.92882,-4.13195], [0,+1.524+3.92882,-4.13195], [0,-1.524+3.92882,-4.13195]]],
 
     // CUP
     ["\CUP\AirVehicles\CUP_AirVehicles_CH47\CUP_CH_47F.p3d", [[-0.00294908,-0.325188,-3.02169], [0,-0.325188+1.9812,-3.02169], [0,-0.325188-1.9812,-3.02169]]],
@@ -73,10 +80,18 @@ slr_customHooks = createHashMapFromArray [
     ["\uns_ch53\uns_ch53a_med.p3d",[[-0.0613299,1.75458,-3.75117],[-0.0613299,4.75458,-3.75117],[-0.0613299,-1.24542,-3.75117]]],
 
     // PRACS
-    ["PRACS_CH53",[[-6.9245e-006,-0.622889,0.466298],[-6.9245e-006,2.37711,0.466298],[-6.9245e-006,-3.62289,0.466298]]],
+    ["PRACS_CH53",[[0,-0.622889,0.466298],[0,2.37711,0.466298],[0,-3.62289,0.466298]]],
 
     // TF373
     ["TF373_SOAR_MH47G", [[-0.032194,1.65714,-2.20174],[-0.0196315,-0.745838,-2.40055],[-0.0195565,3.87736,-2.1888]]],
+
+    // OPTRE ["\OPTRE_Vehicles_Air\Falcon\falcon_unarmed.p3d",5000,[-0,0.687231,-2.63535]]
+    //       ["\OPTRE_Vehicles_Air\Falcon\falcon.p3d",5000,[-0,0.675601,-2.62983]]
+    ["\OPTRE_Vehicles_Air\Falcon\falcon.p3d", [[0,0.675601,-2.62983],[0,3.675601,-2.62983],[0,0.675601-3,-2.62983]]],
+    ["\OPTRE_Vehicles_Air\Falcon\falcon_medical.p3d", [[0,0.675601,-2.62983],[0,3.675601,-2.62983],[0,0.675601-3,-2.62983]]],
+    ["\OPTRE_Vehicles_Air\Falcon\falcon_unarmed.p3d", [[0,0.687231,-2.63535],[0,3.687231,-2.63535],[0,0.687231-3,-2.63535]]],
+    ["OPTRE_Vehicles\Pelican\Pelican_base.p3d", [[0.00737715,3.72935,-3.77232],[0.00737715,3.72935+2.5,-3.77232],[0.00737715,3.72935-2.5,-3.27232]]],
+    ["OPTRE_Vehicles_Air\P_SOCOM\Pelican_SOCOM.p3d", [[0.00737715,3.72935,-3.77232],[0.00737715,3.72935+2.5,-3.77232],[0.00737715,3.72935-2.5,-3.27232]]],
 
     // PSZ: Polish Armed Forces
     ["psz\air\mi24\psz_mi24d", [[0,2.5044,-2.27104]]],
