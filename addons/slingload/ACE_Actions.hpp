@@ -78,7 +78,7 @@ _displayName = localize LSTRING(AdjustRiggingSingle);
 //_icon = "\a3\3den\Data\Cfg3DEN\History\scaleItems_ca.paa";
 _statement = {[_target, _player, false] call slr_slingload_fnc_adjustRigging};
 //_condition = {true};
-_action = ["slr_slingload_adjustRiggingAll", _displayName, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
+_action = ["slr_slingload_adjustRiggingSingle", _displayName, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
 ["All", 0, ["ACE_MainActions","slr_slingload_rig", "slr_slingload_adjustRigging"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 _displayName = localize LSTRING(RemoveRigging);

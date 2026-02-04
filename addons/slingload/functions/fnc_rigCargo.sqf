@@ -28,22 +28,22 @@ if (_liftPoints isEqualTo []) then {
 if (_liftPoints isEqualTo []) exitWith {hint "Use Manual Rig"; false};
 
 // Wrecks
+private _ropeAttachedObject = _cargo;
 if (damage _cargo == 1) then {
-    private _helper = createVehicle ["slr_slingload_wreckDummy", [0,0,0], [], 0, "CAN_COLLIDE"];
-    _helper allowDamage false;
-    _helper disableCollisionWith _cargo;
-    _helper setDir getDir _cargo;
-    private _pos = _cargo modelToWorld (getCenterOfMass _cargo);
-    _pos set [2, 0];
-    _helper setPos _pos;
-    _cargo attachTo [_helper];
-    _helper setMass getMass _cargo;
-    _cargo setVariable [QGVAR(wreckDummy), _helper, true];
-    _cargo = _helper;
+    private _wreckDummy = createVehicle ["slr_slingload_wreckDummy", [0,0,0], [], 0, "CAN_COLLIDE"];
+    _wreckDummy allowDamage false;
+    _wreckDummy disableCollisionWith _cargo;
+    _cargo disableCollisionWith _wreckDummy;
+    _wreckDummy setDir getDir _cargo;
+    _wreckDummy setPosASL getPosASL _cargo;
+    _cargo attachTo [_wreckDummy];
+    _wreckDummy setMass getMass _cargo;
+    _cargo setVariable [QGVAR(wreckDummy), _wreckDummy, true];
+    _ropeAttachedObject = _wreckDummy;
 };
 
 _apexFitting = createVehicle ["slr_slingload_apexFitting", [0,0,0], [], 0, "CAN_COLLIDE"];
-_apexFitting attachTo [_cargo, boundingBoxReal _cargo # 1];
+_apexFitting attachTo [_ropeAttachedObject, boundingBoxReal _cargo # 1];
 detach _apexFitting;
 _apexFitting allowDamage false;
 _apexFitting disableCollisionWith _cargo;
@@ -52,7 +52,11 @@ _apexFitting disableCollisionWith _unit;
 private _ropeLength = 10 max (sizeOf typeOf _cargo);
 private _ropes = [];
 {
-    private _rope = ropeCreate [_apexFitting, "slingload0", _cargo, _x, _ropeLength, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
+    private _liftPoint = _x;
+    if (_ropeAttachedObject != _cargo) then {
+        _liftPoint = _ropeAttachedObject worldToModelVisual (_cargo modelToWorldVisual _liftPoint);
+    };
+    private _rope = ropeCreate [_apexFitting, "slingload0", _ropeAttachedObject, _liftPoint, _ropeLength, ["", [0,0,-1]], ["RopeEnd", [0,0,-1]]];
     _rope setVariable ["slr_slingload_point4Rope", _x, true];
     _rope setVariable ["slr_slingload_ropeLength", _ropeLength, true];
     //_rope disableCollisionWith _unit;

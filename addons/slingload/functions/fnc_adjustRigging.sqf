@@ -59,7 +59,13 @@ if _all then {
                 };
             } forEach _liftPoints;
             if (_liftPoint isNotEqualTo []) then {
-                private _ropes = (_cargo getVariable ["slr_slingload_ropes4Cargo", []])  select {(_x getVariable ["slr_slingload_point4Rope", []]) isEqualTo _liftPoint};
+                private _ropeAttachedObject = _cargo;
+                private _wreckDummy = _cargo getVariable [QGVAR(wreckDummy), objNull];
+                if (!isNull _wreckDummy) then {
+                    _ropeAttachedObject = _wreckDummy;
+                };
+
+                private _ropes = (_ropeAttachedObject getVariable ["slr_slingload_ropes4Cargo", []])  select {(_x getVariable ["slr_slingload_point4Rope", []]) isEqualTo _liftPoint};
                 if (_ropes isNotEqualTo []) then {
                     _sphere attachTo [_cargo, _liftPoint];
                     _sphere hideObject false;

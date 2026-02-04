@@ -37,17 +37,6 @@ class CfgVehicles {
         //ace_refuel_canReceive = 0;
         //ace_cargo_space = 0;
         //ace_cargo_hasCargo = 0;
-        /*
-        class ACE_Actions {
-            class slr_slingload_adjustRope {
-                displayName = "Adjust Rope";
-                condition = slr_slingload_canAdjustRope;
-                statement = "";
-                icon = "\a3\ui_f\data\IGUI\Cfg\VehicleToggles\SlingLoadRopeIconOn_ca.paa";
-                position = [0,0,1];
-            };
-        };
-        */
     };
     /*
     class Rope;

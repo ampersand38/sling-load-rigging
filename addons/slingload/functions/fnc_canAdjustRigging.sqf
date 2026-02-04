@@ -18,7 +18,7 @@
 params ["_cargo", "_player"];
 
 !GVAR(pfeh_running) && {
-    (!isNull ropeAttachedTo _cargo || {
-        (_cargo getVariable ["slr_slingload_ropes4Cargo", []]) isNotEqualTo []
-    })
+    !isNull ropeAttachedTo _cargo
+    || {(_cargo getVariable ["slr_slingload_ropes4Cargo", []]) isNotEqualTo []}
+    || {!isNull (_cargo getVariable [QGVAR(wreckDummy), objNull])}
 }
