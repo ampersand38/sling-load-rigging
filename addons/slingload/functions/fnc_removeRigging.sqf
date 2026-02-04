@@ -14,7 +14,7 @@
  * [_cargo, _unit] call slr_slingload_fnc_removeRigging
  */
 
-params ["_cargo", "_player"];
+params ["_cargo", "_unit"];
 
 private _ropes = _cargo getVariable ["slr_slingload_ropes4Cargo", []];
 

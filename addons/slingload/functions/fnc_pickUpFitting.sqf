@@ -35,7 +35,7 @@ _unit setVariable ["slr_slingload_heldFitting", _af, true];
 
         private _cargo = _af getVariable ["slr_slingload_cargo4Fitting", objNull];
         private _ropes = ropes _af;
-        if (isNull _cargo || {count (_ropes - [objNull]) == 0}) then {
+        if (isNull _cargo || {(_ropes - [objNull]) isEqualTo []}) then {
             deleteVehicle _af;
         } else {
             {

@@ -89,7 +89,7 @@ private _hook = "slr_slingload_hook" createVehicleLocal [0,0,0];
 
         deleteVehicle _hook;
         //if (GVAR(pfeh_action) == RIG_CANCEL) then {};
-        if (GVAR(pfeh_action) > RIG_CANCEL && {count GVAR(rigCargoHelpers) > 0}) then {
+        if (GVAR(pfeh_action) > RIG_CANCEL && {GVAR(rigCargoHelpers) isNotEqualTo []}) then {
             private _liftPoints = GVAR(rigCargoHelpers) apply {(_cargo worldToModelVisual ASLToAGL getPosASL _x) vectorAdd [0,0,0.2]; };
             [_cargo, _unit, _liftPoints] call FUNC(rigCargo);
             _liftPoints = _liftPoints + (_cargo getVariable ["slr_slingload_liftPoints", []]);

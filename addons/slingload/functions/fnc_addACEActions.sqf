@@ -33,10 +33,10 @@ if (_customHooksInfo isNotEqualTo []) exitWith {
     // Custom hook info
     //["model.p3d",[main, forward, aft]],
     {
-        private _position = if (_x isNotEqualTo []) then {
-            _action = [format ["slr_slingload_attachCargo%1", _forEachIndex], _displayName, _icon, _statement, _condition, {}, _forEachIndex, _x, _distance] call ace_interact_menu_fnc_createAction;
-            [_heli, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
-        };
+        if (_x isEqualTo []) then { continue; };
+
+        _action = [format ["slr_slingload_attachCargo%1", _forEachIndex], _displayName, _icon, _statement, _condition, {}, _forEachIndex, _x, _distance] call ace_interact_menu_fnc_createAction;
+        [_heli, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
     } forEach _customHooksInfo;
 
     true

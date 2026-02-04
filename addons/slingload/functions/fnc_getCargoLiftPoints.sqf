@@ -16,4 +16,4 @@
 params ["_cargo"];
 
 // vanilla config
-(getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints")) apply {_cargo selectionPosition _x};
+(getArray (configOf _cargo >> "slingLoadCargoMemoryPoints")) apply {_cargo selectionPosition _x};

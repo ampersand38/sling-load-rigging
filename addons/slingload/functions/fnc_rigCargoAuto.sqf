@@ -17,6 +17,6 @@
 
 params ["_cargo", "_unit"];
 
-private _liftPoints = (getArray (configFile >> "CfgVehicles" >> typeOf _cargo >> "slingLoadCargoMemoryPoints")) apply {_cargo selectionPosition _x};
+private _liftPoints = (getArray (configOf _cargo >> "slingLoadCargoMemoryPoints")) apply {_cargo selectionPosition _x};
 
 [_cargo, _unit, _liftPoints] call FUNC(rigCargo);
